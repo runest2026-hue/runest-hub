@@ -1,58 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>RUNEST Business Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>RUNEST Business Hub</title>
 
-  <style>
-    body{
-      font-family: Arial;
-      background:#f4f6f8;
-      text-align:center;
-      padding:40px;
-    }
+<style>
+body{
+    font-family: Arial;
+    background:#f5f6f8;
+    text-align:center;
+    padding:30px;
+}
 
-    h1{
-      margin-bottom:30px;
-    }
+.card{
+    background:white;
+    width:320px;
+    margin:auto;
+    padding:25px;
+    border-radius:16px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
 
-    .card{
-      background:white;
-      padding:20px;
-      margin:15px auto;
-      width:280px;
-      border-radius:12px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-      cursor:pointer;
-      transition:0.2s;
-    }
+.nameList{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:15px;
+}
 
-    .card:hover{
-      transform:scale(1.03);
-    }
-  </style>
+.nameBtn{
+    padding:6px 10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    cursor:pointer;
+    font-size:12px;
+    background:white;
+}
+
+.nameBtn.active{
+    background:#0aa6a6;
+    color:white;
+    border:none;
+}
+
+h2{margin:10px 0 5px;}
+.role{color:gray;font-size:14px;}
+
+.btn{
+    display:block;
+    margin:10px 0;
+    padding:12px;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+}
+
+.whatsapp{background:#25D366;}
+.call{background:#007bff;}
+.email{background:#6c757d;}
+.website{background:#333;}
+</style>
 </head>
 
 <body>
 
-<h1>RUNEST Sales Team</h1>
+<div class="card">
 
-<div class="card" onclick="location.href='nicole.html'">
-  Nicole Ma - Sales Manager
+    <h2>RUNEST</h2>
+    <p class="role">Paper Packaging Manufacturer</p>
+
+    <div class="nameList">
+        <button class="nameBtn active" onclick="switchUser(0)">Nicole</button>
+        <button class="nameBtn" onclick="switchUser(1)">Alex</button>
+        <button class="nameBtn" onclick="switchUser(2)">David</button>
+    </div>
+
+    <h2 id="name">Nicole Ma</h2>
+    <p class="role" id="role">Sales Manager</p>
+
+    <a id="wa" class="btn whatsapp" href="#" target="_blank">WhatsApp</a>
+    <a id="call" class="btn call" href="#">Call</a>
+    <a id="email" class="btn email" href="#">Email</a>
+    <a class="btn website" href="https://www.runest.net" target="_blank">Official Website</a>
+
 </div>
 
-<div class="card" onclick="location.href='david.html'">
-  David Chen - Sales Director
-</div>
+<script>
+const users = [
+{
+    name:"Nicole Ma",
+    role:"Sales Manager",
+    phone:"8613800000000",
+    email:"sales@runest.net"
+},
+{
+    name:"Alex Chen",
+    role:"Senior Sales",
+    phone:"8613811111111",
+    email:"alex@runest.net"
+},
+{
+    name:"David Li",
+    role:"Export Manager",
+    phone:"8613822222222",
+    email:"david@runest.net"
+}
+];
 
-<div class="card" onclick="location.href='sophia.html'">
-  Sophia Li - Sales Executive
-</div>
+function switchUser(i){
+    document.querySelectorAll(".nameBtn").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".nameBtn")[i].classList.add("active");
 
-<div class="card" onclick="location.href='kevin.html'">
-  Kevin Wang - Sales Executive
-</div>
+    document.getElementById("name").innerText = users[i].name;
+    document.getElementById("role").innerText = users[i].role;
+
+    document.getElementById("wa").href =
+    "https://wa.me/" + users[i].phone;
+
+    document.getElementById("call").href =
+    "tel:" + users[i].phone;
+
+    document.getElementById("email").href =
+    "mailto:" + users[i].email;
+}
+
+switchUser(0);
+</script>
 
 </body>
 </html>
