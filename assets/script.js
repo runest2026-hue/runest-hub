@@ -1,0 +1,1 @@
+console.log('Runest V5 stable loaded');
