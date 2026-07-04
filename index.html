@@ -3,74 +3,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Runest Packaging V6</title>
-<link rel="stylesheet" href="assets/style.css">
+<title>Runest Packaging</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#f6f7f9;
+  color:#111;
+}
+
+/* HERO */
+.hero{
+  background:#0f766e;
+  color:white;
+  text-align:center;
+  padding:80px 20px;
+}
+
+.hero h1{
+  font-size:42px;
+  margin:0;
+}
+
+.hero p{
+  margin-top:10px;
+  font-size:16px;
+  opacity:0.9;
+}
+
+.cta{
+  margin-top:25px;
+}
+
+.cta a{
+  display:inline-block;
+  margin:6px;
+  padding:10px 18px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.cta a:nth-child(1){
+  background:white;
+  color:#0f766e;
+}
+
+.cta a:nth-child(2){
+  background:#25D366;
+  color:white;
+}
+
+.cta a:nth-child(3){
+  background:#fff;
+  color:#111;
+}
+
+/* SECTION */
+section{
+  padding:60px 15%;
+}
+
+/* PRODUCTS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:30px;
+  text-align:center;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+  font-weight:600;
+}
+
+/* TEAM */
+.team{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.person{
+  background:white;
+  padding:20px;
+  text-align:center;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* CERT */
+.cert-mini{
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  font-weight:600;
+  letter-spacing:1px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px;
+}
+
+footer button{
+  background:#0f766e;
+  color:white;
+  border:none;
+  padding:14px 28px;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  section{padding:40px 20px;}
+  .grid,.team{grid-template-columns:1fr;}
+  .hero h1{font-size:30px;}
+}
+</style>
 </head>
+
 <body>
 
-<header>
-  <div class="logo">Runest</div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#products">Products</a>
-    <a href="#team">Team</a>
-    <a href="#cert">Certificates</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <a class="cta">Contact Sales</a>
-</header>
+<!-- HERO -->
+<div class="hero">
+  <h1>Runest Packaging</h1>
+  <p>One-stop Custom Paper Packaging Manufacturer</p>
 
-<section class="hero">
-  <div class="hero-text">
-    <h1>SuZhou Runest Packaging</h1>
-    <p>One-stop Custom Paper Packaging Manufacturer</p>
-    <div class="tags">
-      <span>OEM & ODM</span>
-      <span>Factory Direct</span>
-      <span>Fast Delivery</span>
-      <span>Quality Assurance</span>
-    </div>
-    <div class="buttons">
-      <a class="btn">View Products</a>
-      <a class="btn outline">Contact Our Team</a>
-    </div>
+  <div class="cta">
+    <a href="#products">View Products</a>
+    <a href="https://wa.me/8613812345678" target="_blank">WhatsApp</a>
+    <a href="mailto:sales@runest.net">Email Us</a>
   </div>
+</div>
 
-  <div class="hero-img"></div>
+<!-- PRODUCTS -->
+<section id="products">
+  <h2>Core Products</h2>
+  <div class="grid">
+    <div class="card">Paper Tube</div>
+    <div class="card">Gift Box</div>
+    <div class="card">Mailer Box</div>
+  </div>
 </section>
 
-<section class="stats">
-  <div>Founded 2010</div>
-  <div>MOQ 3000 pcs</div>
-  <div>SuZhou, China</div>
-  <div>www.runest.net</div>
+<!-- TEAM -->
+<section>
+  <h2>Sales Team</h2>
+  <div class="team">
+
+    <div class="person">
+      <h3>Eden</h3>
+      <p>Sales Manager</p>
+      <p>WhatsApp: +86 150 xxxx xxxx</p>
+    </div>
+
+    <div class="person">
+      <h3>Nicole</h3>
+      <p>Sales Executive</p>
+      <p>WhatsApp: +86 181 xxxx xxxx</p>
+    </div>
+
+    <div class="person">
+      <h3>Beatrice</h3>
+      <p>Sales Executive</p>
+      <p>WhatsApp: +86 133 xxxx xxxx</p>
+    </div>
+
+  </div>
 </section>
 
-<section id="products" class="grid">
-  <div>Gift Box</div>
-  <div>Paper Tube</div>
-  <div>Paper Bag</div>
-  <div>Labels</div>
-  <div>Brochure</div>
-  <div>Display Box</div>
-  <div>Paper Insert</div>
+<!-- CERTIFICATIONS (FIXED：极简真实展示) -->
+<section>
+  <h2>Certifications</h2>
+
+  <div class="cert-mini">
+    ISO 9001:2015 ｜ FSC COC ｜ RoHS ｜ REACH ｜ CE
+  </div>
 </section>
 
-<section id="team" class="team">
-  <div>Eden - Sales Manager</div>
-  <div>Nicole - Sales Executive</div>
-  <div>Beatrice - Sales Executive</div>
-</section>
-
-<section id="cert" class="cert">
-  <div>FSC</div>
-  <div>ISO</div>
-  <div>CE</div>
-  <div>RoHS</div>
-</section>
-
-<footer id="contact">
-  <p>© 2010-2026 Runest Packaging</p>
+<!-- CTA -->
+<footer>
+  <button onclick="window.location.href='mailto:sales@runest.net'">
+    Contact Sales
+  </button>
 </footer>
 
 </body>
