@@ -1,62 +1,195 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>RUNEST Business Cards</title>
 
-  <!-- ✅ Google Analytics（必须放这里） -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ353FEFF5"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-QZ353FEFF5');
+</script>
 
-    gtag('config', 'G-XXXXXXX');
-  </script>
+<meta charset="UTF-8">
+<title>RUNEST Card</title>
 
-  <style>
-    body{
-      font-family: Arial;
-      text-align:center;
-      background:#f5f5f5;
-      padding:50px;
-    }
+</head>
+<meta charset="UTF-8">
+<title>RUNEST Business Card</title>
 
-    .card{
-      background:#fff;
-      padding:20px;
-      margin:15px auto;
-      width:300px;
-      border-radius:12px;
-      box-shadow:0 2px 10px rgba(0,0,0,0.1);
-    }
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#f2f4f7;
+display:flex;
+justify-content:center;
+padding:30px;
+}
 
-    a{
-      display:block;
-      margin:10px 0;
-      text-decoration:none;
-      color:#333;
-      font-size:18px;
-    }
+.card{
+width:390px;
+background:#fff;
+border-radius:22px;
+padding:28px;
+text-align:center;
+box-shadow:0 12px 35px rgba(0,0,0,0.12);
+}
 
-    a:hover{
-      color:#007bff;
-    }
-  </style>
+.logo{
+width:180px;
+margin:10px auto;
+display:block;
+}
+
+.tabs{
+margin:10px 0;
+}
+
+.tab{
+display:inline-block;
+padding:6px 14px;
+margin:4px;
+border-radius:20px;
+border:1px solid #ccc;
+cursor:pointer;
+font-size:14px;
+}
+
+.tab.active{
+background:#00b894;
+color:#fff;
+border:none;
+}
+
+.avatar{
+width:135px;
+height:135px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #eee;
+margin-top:10px;
+}
+
+.name{
+font-size:22px;
+font-weight:bold;
+margin-top:10px;
+}
+
+.role{
+color:#666;
+margin-bottom:10px;
+}
+
+.btn{
+display:block;
+margin:8px 0;
+padding:12px;
+border-radius:10px;
+color:#fff;
+text-decoration:none;
+font-weight:600;
+}
+
+.wa{background:#25D366;}
+.call{background:#1e90ff;}
+.email{background:#636e72;}
+.web{background:#2d3436;}
+</style>
 </head>
 
 <body>
 
-  <h1>RUNEST Digital Business Cards</h1>
+<div class="card">
 
-  <div class="card">
-    <h2>Team Members</h2>
+<!-- LOGO -->
+<img class="logo" src="companylogong.png">
 
-    <a href="nicole.html">👉 Nicole Card</a>
-    <a href="eden.html">👉 Eden Card</a>
-    <a href="beatrice.html">👉 Beatrice Card</a>
+<!-- 三个名字并列 -->
+<div class="tabs">
+<div class="tab active" onclick="switchUser(0)">Nicole</div>
+<div class="tab" onclick="switchUser(1)">Eden</div>
+<div class="tab" onclick="switchUser(2)">Beatrice</div>
+</div>
 
-  </div>
+<!-- 头像 -->
+<img id="avatar" class="avatar" src="">
+
+<!-- 信息 -->
+<div id="name" class="name"></div>
+<div id="role" class="role"></div>
+
+<!-- 按钮 -->
+<a id="wa" class="btn wa" target="_blank">WhatsApp</a>
+<a id="call" class="btn call">Call</a>
+<a id="email" class="btn email">Email</a>
+
+<a class="btn web" href="https://www.runest.net/" target="_blank">
+🌐 Website
+</a>
+
+</div>
+
+<script>
+
+// =======================
+// 👇 三个业务员数据
+// =======================
+const users = [
+{
+name:"Nicole",
+role:"Sales Manager",
+img:"Nicole照片.jpg",
+phone:"+8618121368997",
+email:"nicole@runest.net",
+wa:"https://wa.me/8618121368997"
+},
+{
+name:"Eden",
+role:"Sales Executive",
+img:"Eden照片.jpg",
+phone:"+8615055155808",
+email:"eden@runest.net",
+wa:"https://wa.me/8615055155808"
+},
+{
+name:"Beatrice",
+role:"Sales Executive",
+img:"Beatrice照片.jpg",
+phone:"+8613381768110",
+email:"beatrice@runest.net",
+wa:"https://wa.me/8613381768110"
+}
+];
+
+// =======================
+// 👇 切换用户函数
+// =======================
+function switchUser(i){
+const u = users[i];
+
+// 更新内容
+document.getElementById("name").innerText = u.name;
+document.getElementById("role").innerText = u.role;
+document.getElementById("avatar").src = u.img;
+
+// 更新按钮
+document.getElementById("wa").href = u.wa;
+document.getElementById("call").href = "tel:" + u.phone;
+document.getElementById("email").href = "mailto:" + u.email;
+
+// tab状态
+document.querySelectorAll(".tab").forEach((t,idx)=>{
+t.classList.toggle("active", idx === i);
+});
+}
+
+// 默认显示第一个人
+switchUser(0);
+
+</script>
 
 </body>
 </html>
